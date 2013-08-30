@@ -11,24 +11,24 @@ import com.mongodb.MongoException;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
- 
+
 /**
  * Java MongoDB : Save image example
- * 
+ *
  */
- 
+
 public class App {
 	public static void main(String[] args) {
- 
+
 		try {
- 
+
 			Mongo mongo = new Mongo("localhost", 27017);
 			DB db = mongo.getDB("imagedb");
 			DBCollection collection = db.getCollection("dummyColl");
 
 			String newFileName = "mkyong-java-image";
- 
-			File imageFile = new File("d:\\a.jpg");
+
+			File imageFile = new File("d:\\acta.zip");
 
 			// create a "photo" namespace
 			GridFS gfsPhoto = new GridFS(db, "photo");
@@ -52,13 +52,13 @@ public class App {
 			GridFSDBFile imageForOutput = gfsPhoto.findOne(newFileName);
 
 			// save it into a new image file
-			imageForOutput.writeTo("d:\\a.jpg");
- 
+			imageForOutput.writeTo("d:\\acta.zip");
+
 			// remove the image file from mongoDB
 			gfsPhoto.remove(gfsPhoto.findOne(newFileName));
- 
+
 			System.out.println("Done");
- 
+
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (MongoException e) {
@@ -66,6 +66,6 @@ public class App {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
- 
+
 	}
 }
