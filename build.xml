@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="naif" default="del" basedir=".">
+
+  <tstamp/>
+
+  <target name="del" description="Initialize the build">
+    <delete dir="mongo/target" failonerror="no"/>
+    <delete dir="GridFS/target" failonerror="no"/>
+  </target>
+
+</project>
